@@ -2,9 +2,12 @@
 
 Galvanize Reads is a book catalog service that stores a list of recommended technology books. It allows you to:
 
-* Lisa books and authors
-*add books and authors
-* modify books and authors
+* List books and authors
+
+* Add books and authors
+
+* Modify books and authors
+
 * Remove books and authors
 
 ## Development
