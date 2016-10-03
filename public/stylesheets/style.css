@@ -66,4 +66,23 @@ body > header {
       font-size: 2rem;
       letter-spacing: -2px; }
 
+.books {
+  margin-left: 4rem;
+  padding: 1rem; }
+  .books h2 {
+    margin-bottom: 1rem; }
+  .books .book {
+    display: flex;
+    flex-flow: row wrap; }
+    .books .book:not(:last-child) {
+      margin-bottom: 1rem; }
+    .books .book figure {
+      position: relative;
+      max-width: 130px; }
+      .books .book figure img {
+        width: 100%; }
+    .books .book .details {
+      max-width: 400px;
+      margin-left: 1rem; }
+
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,17 @@
+<section class="books">
+    <h2>Books</h2>
+    <ul>
+        {{#each books}}
+            <li class="book">
+                <figure>
+                    <img src="{{this.cover_url}}" alt="{{this.title}} book cover"/>
+                </figure>
+                <div class="details">
+                    <h3>{{this.title}}</h3>
+                    <span class="genre">{{this.genre}}</span>
+                    <p>{{this.description}}</p>
+                </div>
+            </li>
+        {{/each}}
+    </ul>
+</section>
