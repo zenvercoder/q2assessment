@@ -1,10 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Lora:400,400italic,700,700italic);
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
-
-a {
-  color: #00B7FF; }
+// to reduce browser inconsistencies in things like default line heights and margins
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -24,46 +18,41 @@ time, mark, audio, video {
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline; }
-
+  vertical-align: baseline;
+}
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-  display: block; }
-
+  display: block;
+}
 body {
-  line-height: 1; }
-
+  line-height: 1;
+}
 ol, ul {
-  list-style: none; }
-
+  list-style: none;
+}
 blockquote, q {
-  quotes: none; }
-
+  quotes: none;
+}
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: '';
-  content: none; }
-
+  content: none;
+}
 table {
   border-collapse: collapse;
-  border-spacing: 0; }
+  border-spacing: 0;
+}
 
-body > header {
-  background-color: #162855;
-  padding: 1rem; }
-  body > header a {
-    text-decoration: none;
-    color: #fff; }
-    body > header a .logo {
-      display: inline-block;
-      font-size: 2rem; }
-    body > header a h1 {
-      display: inline-block;
-      font-family: Lora, serif;
-      font-weight: 700;
-      font-color: #fff;
-      font-size: 2rem;
-      letter-spacing: -2px; }
+$black: #333;
+$white: #fff;
 
-/*# sourceMappingURL=style.css.map */
+$primary-color: #2E4172;
+$lighter-color: #7886AB;
+$light-color: #4F618E;
+$dark-color: #162855;
+$darkest-color: #061539;
+
+$create-color: #236467;
+$delete-color: hsl(0, 40%, 50%);
+
