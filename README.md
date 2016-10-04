@@ -67,7 +67,21 @@ Galvanize Reads is a book catalog service that stores a list of recommended tech
 
 * [deploying on heroku](https://devcenter.heroku.com/articles/git#deploying-code)
 
+* If we have no new things to set up on Heroku, all we have to do to deploy is add, commit, merge, and push.
+
+## SCSS
+
+* So every time I try to add SCSS, newFile.css.map shows up and also when I run, the styles totally break. 
+
+* Commented out the @imports within the file, looked in .css file to find error message. none. in developer console: cannot get style.css. Had forgotten to re-seed data
+
+## Validation
+
+* `npm install --save express-validator`
+
 ##Notes to self
+
+* Check the DOM to see if the element is even there
 
 * “Namespace the file”
  
