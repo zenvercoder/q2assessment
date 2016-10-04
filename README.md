@@ -67,7 +67,9 @@ Galvanize Reads is a book catalog service that stores a list of recommended tech
 
 * [deploying on heroku](https://devcenter.heroku.com/articles/git#deploying-code)
 
-* If we have no new things to set up on Heroku, all we have to do to deploy is add, commit, merge, and push. heroku wasn't working `heroku logs` couldn't find express-validator. added and committed it. will it work?? IT WORKED!!! omg, feelin like a debuggininja
+* If we have no new things to set up on Heroku, all we have to do to deploy is add, commit, merge, and push. heroku wasn't working `heroku logs` couldn't find express-validator. added and committed it. will it work?? IT WORKED!!! omg, feelin like a debuggi-ninja
+
+* got delete route working on localhost. now it's broken on heroku. deleting "heroku postgress page from .env. Will this work... 
 
 ## SCSS
 
