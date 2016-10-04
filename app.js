@@ -24,11 +24,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator({
   customValidators: {
     //runs a regex for the URL pattern and tests it against a value, returning a boolean for whether it matched.
-    isUrl: function(value){
+    isURL: function(value){
       return /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w\.-]*)*\/?$/.test(value);
     }
   }
 }));
+
 app.use(methodOverride("_method"));
 app.use(cookieParser());
 app.use(require('node-sass-middleware')({

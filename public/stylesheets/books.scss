@@ -33,20 +33,30 @@
         margin-top: 1rem;
         @include body-text;
       }
-      .delete {
+      .actions {
         //absolutely position delete icon inside of details and pin to top right corner
         position: absolute;
         top: 0;
         right: 0;
-        // make icon red
-        color: $delete-color;
         font-size: 2rem;
         cursor: pointer;
-        // add hover effect that makes it animate 20% larger to help user identify icon as something that links to an action
-        &:hover {
-          transform: scale(1.2);
+        transform: scale(1);
+        transition: transform 0.3s;
+        .delete, .edit {
+          &:hover {
+            // add hover effect that makes it animate 20% larger to help user identify icon as something that links to an action
+            transform: scale(1.2);
+          }
+        }
+        .delete {
+          // make icon red
+          color: $delete-color;
+        }
+        .edit {
+          color: $light-color;
         }
       }
+
     }
   }
   .add {

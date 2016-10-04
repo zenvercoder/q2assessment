@@ -81,6 +81,8 @@ Galvanize Reads is a book catalog service that stores a list of recommended tech
 
 * `npm install --save express-validator`
 
+* so I guess there IS a space after the w in the regex
+
 ##Notes to self
 
 * Check the DOM to see if the element is even there
