@@ -12,7 +12,27 @@ Galvanize Reads is a book catalog service that stores a list of recommended tech
 
 ## Development
 
-Clone this repo and run `npm start`
+* Clone this repo and run `npm start`
+
+* Set up a local PostGreSQL database
+
+*Configure a `.env` file - use the `.env.example` file as a guideline
+
+* `npm install` dependencies
+
+* run `knex migrate:latest` to setup database
+
+* Run `knex seed:run` to add sample data
+
+* Run `npm start` to see it running correctly
+
+## Production
+
+* Set `DATABASE_URL` to your remote connection string
+
+* Run `knex migrate:latest --env production` to setup database
+
+* Run `knex seed:run --env production` to add sample data
 
 ## Heroku
 
@@ -39,9 +59,13 @@ Clone this repo and run `npm start`
 
 * for the above step, you can also do `heroku config -s | grep HEROKU_POSTGRESQL` (result = heroku-postgresql (postgresql-animated-29238)  hobby-dev  free)
 
-* [Provisioning the add on}(https://devcenter.heroku.com/articles/heroku-postgresql#provisioning-the-add-on)
+* [Provisioning the add on](https://devcenter.heroku.com/articles/heroku-postgresql#provisioning-the-add-on)
 
+* could not get this part working: "test to see if this branch works when deployed before we merge by running `git push heroku read-books:master`" (it was b/c I wasn't on a branch)
 
+* `git push heroku master`
+
+* [deploying on heroku](https://devcenter.heroku.com/articles/git#deploying-code)
 
 ##Notes to self
 
