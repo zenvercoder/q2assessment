@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
+var methodOverride = require("method-override");
 
 var routes = require('./routes/index');
 var books = require('./routes/books');
@@ -28,7 +29,7 @@ app.use(expressValidator({
     }
   }
 }));
-
+app.use(methodOverride("_method"));
 app.use(cookieParser());
 app.use(require('node-sass-middleware')({
   src: path.join(__dirname, 'public'),

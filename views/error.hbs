@@ -1,3 +1,10 @@
-<h1>{{message}}</h1>
+<h2>Error!</h2>
+{{#each errors}}
+    <p>Orig message for {{param}}: {{value}}. Message: {{msg}}</p>
+
+    <p>Invalid message for {{this.param}}: {{this.value}}. Message: {{this.msg}}</p>
+{{/each}}
+
+Standard error.hbs message:
 <h2>{{error.status}}</h2>
 <pre>{{error.stack}}</pre>

@@ -67,7 +67,7 @@ Galvanize Reads is a book catalog service that stores a list of recommended tech
 
 * [deploying on heroku](https://devcenter.heroku.com/articles/git#deploying-code)
 
-* If we have no new things to set up on Heroku, all we have to do to deploy is add, commit, merge, and push.
+* If we have no new things to set up on Heroku, all we have to do to deploy is add, commit, merge, and push. heroku wasn't working `heroku logs` couldn't find express-validator. added and committed it. will it work?? IT WORKED!!! omg, feelin like a debuggininja
 
 ## SCSS
 
@@ -89,7 +89,7 @@ Galvanize Reads is a book catalog service that stores a list of recommended tech
 
 * for error "cannot find module lodash/first" do `npm install lodash --save`
 
-* on p 18, {{#each this}} wont work, but {{#each books}} will
+* DELETE action on a form, we need to use a node library called `method-override`. Install it with `npm install --save method-override`
  
 ##Read it in english
 * `express --hbs --css sass --git` to initialize a new express project with handlebars, SASS, and a basic .gitignore

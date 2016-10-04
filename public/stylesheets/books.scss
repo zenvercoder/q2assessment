@@ -19,6 +19,7 @@
       }
     }
     .details {
+      position: relative;
       max-width: 400px;
       margin-left: 1rem;
       h3 {
@@ -31,6 +32,20 @@
       p {
         margin-top: 1rem;
         @include body-text;
+      }
+      .delete {
+        //absolutely position delete icon inside of details and pin to top right corner
+        position: absolute;
+        top: 0;
+        right: 0;
+        // make icon red
+        color: $delete-color;
+        font-size: 2rem;
+        cursor: pointer;
+        // add hover effect that makes it animate 20% larger to help user identify icon as something that links to an action
+        &:hover {
+          transform: scale(1.2);
+        }
       }
     }
   }
