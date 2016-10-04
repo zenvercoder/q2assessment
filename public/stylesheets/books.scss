@@ -2,6 +2,7 @@
   margin-left: 4rem;
   padding: 1rem;
   h2 {
+    @include header-text;
     margin-bottom: 1rem;
   }
   .book {
