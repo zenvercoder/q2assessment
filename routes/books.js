@@ -5,14 +5,19 @@ var databaseConnection = require("../database_connection");
 router.get('/:id', function (req, res, next) {
     databaseConnection("book").select().where("id", req.params.id)
         .then(function (books) {
-        res.render("get_book", {books: books[0]});
-    });
+            res.render("get_book", {books: books[0]});
+        });
 });
 
 router.get('/', function (req, res, next) {
-    databaseConnection("book").select().then(function (books) {
-        res.render("list_books", {"books": books});
-    });
+    databaseConnection("book")
+        .select()
+        .innerJoin("book_author", "book.id", "book_id")
+        .innerJoin("author", "author_id", "author.id")
+        .then(function (books) {
+            var books = mapAuthorsToBooks(records);
+            res.render("list_books", {books: books});
+        });
 });
 
 router.get('/new', function (req, res, next) {
@@ -44,19 +49,19 @@ router.post('/', function (req, res, next) {
 router.get('/delete/:id', function (req, res, next) {
     databaseConnection("book").select().where("id", req.params.id)
         .then(function (books) {
-        res.render("delete_book", {book: books[0]});
-    });
+            res.render("delete_book", {book: books[0]});
+        });
 });
 
-router.delete("/:id", function(req, res, next) {
+router.delete("/:id", function (req, res, next) {
     console.log("got to delete");
     databaseConnection("book").del().where("id", req.params.id)
         .then(function () {
-        res.redirect("/books");
-    });
+            res.redirect("/books");
+        });
 });
 
-router.get("/edit/:id", function (req, res, next){
+router.get("/edit/:id", function (req, res, next) {
     databaseConnection("book").select().where("id", req.params.id)
         .then(function (books) {
             res.render("edit_book", {book: books[0]});
@@ -81,14 +86,10 @@ router.put('/:id', function (req, res, next) {
             cover_url: req.body.cover_image_url
         }).where("id", req.params.id)
             .then(function (books) {
-            res.redirect("/books");
-        });
+                res.redirect("/books");
+            });
     }
 });
-
-
-
-
 
 
 module.exports = router;

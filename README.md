@@ -94,6 +94,8 @@ Galvanize Reads is a book catalog service that stores a list of recommended tech
 * for error "cannot find module lodash/first" do `npm install lodash --save`
 
 * DELETE action on a form, we need to use a node library called `method-override`. Install it with `npm install --save method-override`
+
+* in book_author table seeding, book.id was not defined b/c select wasn't working b/c .select("id").where("title", bookTitle) wasn't finding the books from the table because the book seed data was different (I had removed quotes and apostrophes b/c I didn't want to deal w regex. interestinnnnngggg)
  
 ##Read it in english
 * `express --hbs --css sass --git` to initialize a new express project with handlebars, SASS, and a basic .gitignore
