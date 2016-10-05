@@ -108,6 +108,8 @@ Galvanize Reads is a book catalog service that stores a list of recommended tech
   }`
   
 * Get a single book list authors didn't work at first b/c I didn't do an inner join and currrentRecord.id was undefined
+
+* At this time, can't delete a book that wasn't added via seed file b/c no author id. So, will need to fix mapAuthorsToBooks function for add/edit book. Perhaps after working more with the authors side
  
 ##Read it in english
 * `express --hbs --css sass --git` to initialize a new express project with handlebars, SASS, and a basic .gitignore
