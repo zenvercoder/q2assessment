@@ -2,12 +2,7 @@ var express = require('express');
 var router = express.Router();
 var databaseConnection = require("../database_connection");
 
-router.get('/:id', function (req, res, next) {
-    databaseConnection("book").select().where("id", req.params.id)
-        .then(function (books) {
-        res.render("books/list_books", {"books": books});
-    });
-});
+
 
 router.get('/', function (req, res, next) {
     databaseConnection("book").select().then(function (books) {
@@ -20,16 +15,16 @@ router.get('/new', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
-    req.checkBody("title", "Title is empty or too long").notEmpty().isLength({max: 255});
-    req.checkBody("genre", "Genre is empty or too long").notEmpty().isLength({max: 255});
-    req.checkBody("description", "Description is empty or too long").notEmpty().isLength({max: 2000});
-    req.checkBody("cover_image_url", "not a URL").isURL(req.body.cover_image_url);
-
-    var errors = req.validationErrors();
-
-    if (errors) {
-        res.render("error", {errors: errors});
-    } else {
+    // req.checkBody("title", "Title is empty or too long").notEmpty().isLength({max: 255});
+    // req.checkBody("genre", "Genre is empty or too long").notEmpty().isLength({max: 255});
+    // req.checkBody("description", "Description is empty or too long").notEmpty().isLength({max: 2000});
+    // req.checkBody("cover_image_url", "not a URL").isURL(req.body.cover_image_url);
+    //
+    // var errors = req.validationErrors();
+    //
+    // if (errors) {
+    //     res.render("error", {errors: errors});
+    // } else {
         databaseConnection("book").insert({
             title: req.body.title,
             genre: req.body.genre,
@@ -38,7 +33,14 @@ router.post('/', function (req, res, next) {
         }).then(function (books) {
             res.redirect("/books");
         });
-    }
+    // }
+});
+
+router.get('/:id', function (req, res, next) {
+    databaseConnection("book").select().where("id", req.params.id)
+        .then(function (books) {
+            res.render("books/get_book", {books: books[0]});
+        });
 });
 
 router.get('/delete/:id', function (req, res, next) {

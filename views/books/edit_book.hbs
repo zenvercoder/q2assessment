@@ -17,30 +17,5 @@
         <input type="submit" value="Edit Book"/>
     </form>
 
-    <div class="remove-item">
-        <h2>{{book.title}}'s Authors</h2>
-        <ul>
-            {{#each book.authors}}
-                <li>
-                    <form method="POST" action="/books/{{../book.id}}/authors/{{id}}?_method=DELETE">
-                        <span>{{first_name}}{{last_name}}</span>
-                        <button type="submit">
-                            <i class="delete fa fa-remove"></i>
-                        </button>
-                    </form>
-                </li>
-            {{/each}}
-        </ul>
-    </div>
-
-    <form class="add-item" method="POST" action="/books/{{book.id}}/authors">
-        <h2>Add a Author to {{book.title}}</h2>
-        <select name="author_id">
-            {{#each authors}}
-                <option value="{{id}}">{{first_name}}{{last_name}}</option>
-            {{/each}}
-        </select>
-        <input type="submit" value="Add Author"/>
-    </form>
 </section>
 
