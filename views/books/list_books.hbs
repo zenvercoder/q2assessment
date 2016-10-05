@@ -8,11 +8,7 @@
                 </figure>
                 <div class="details">
                     <h3><a href="/books/{{id}}">{{this.title}}</a></h3>
-                    <ul class="authors">
-                        {{#each authors}}
-                            <li>{{first_name}} {{last_name}}</li>
-                        {{/each}}
-                    </ul>
+
                     <span class="genre">{{this.genre}}</span>
                     <p>{{this.description}}</p>
                     <div class="actions">
@@ -25,3 +21,11 @@
     </ul>
     <a class="add" href="books/new">Add a Book</a>
 </section>
+
+
+
+<!--<ul class="authors">-->
+        <!--{{#each authors}}-->
+<!--<li>{{first_name}} {{last_name}}</li>-->
+        <!--{{/each}}-->
+<!--</ul>-->
