@@ -1,16 +1,20 @@
 <section class="books">
             <div class="book">
                 <figure>
-                    <img src="{{books.cover_url}}" alt="{{books.title}} book cover"/>
+                    <img src="{{book.cover_url}}" alt="{{book.title}} book cover"/>
                 </figure>
                 <div class="details">
-                    <h3>{{books.title}}</h3>
-
-                    <span class="genre">{{books.genre}}</span>
-                    <p>{{books.description}}</p>
+                    <h3>{{book.title}}</h3>
+                    <ul class="authors">
+                        {{#each book.authors}}
+                            <li>{{this.first_name}} {{last_name}}</li>
+                        {{/each}}
+                    </ul>
+                    <span class="genre">{{book.genre}}</span>
+                    <p>{{book.description}}</p>
                     <div class="actions">
-                        <a href="/books/edit/{{books.id}}"><i class="edit fa fa-pencil"></i></a>
-                        <a href="/books/delete/{{books.id}}"><i class="delete fa fa-remove"></i></a>
+                        <a href="/books/edit/{{book.id}}"><i class="edit fa fa-pencil"></i></a>
+                        <a href="/books/delete/{{book.id}}"><i class="delete fa fa-remove"></i></a>
                     </div>
                 </div>
             </div>

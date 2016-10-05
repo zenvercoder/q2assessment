@@ -97,9 +97,14 @@ router.post('/', function (req, res, next) {
 });
 
 router.get('/:id', function (req, res, next) {
-    databaseConnection("book").select().where("id", req.params.id)
-        .then(function (books) {
-            res.render("books/get_book", {books: books[0]});
+    databaseConnection("book").select()
+        .innerJoin("book_author", "book.id", "book_id")
+        .innerJoin("author", "author_id", "author.id")
+        .where("book.id", req.params.id)
+        .then(function (records) {
+            var books = mapAuthorsToBooks(records);
+            console.log(books);
+            res.render("books/get_book", {book: books[0]});
         });
 });
 

@@ -96,6 +96,18 @@ Galvanize Reads is a book catalog service that stores a list of recommended tech
 * DELETE action on a form, we need to use a node library called `method-override`. Install it with `npm install --save method-override`
 
 * in book_author table seeding, book.id was not defined b/c select wasn't working b/c .select("id").where("title", bookTitle) wasn't finding the books from the table because the book seed data was different (I had removed quotes and apostrophes b/c I didn't want to deal w regex. interestinnnnngggg)
+
+* mapAuthorsToBooks wasn't working because mappedBooks was empty. Because if the record was not seen, it would take the author from the current record but not do anything with it. mappedBooks[bookId] = currentRecord fixed it
+
+* I really like this part: (it takes an unordered list, forces them to sit inline and puts a comma and a space after every li except the last
+
+`li {
+      display: inline;
+      &:not(:last-child):after{
+        content: ", "
+  }`
+  
+* Get a single book list authors didn't work at first b/c I didn't do an inner join and currrentRecord.id was undefined
  
 ##Read it in english
 * `express --hbs --css sass --git` to initialize a new express project with handlebars, SASS, and a basic .gitignore
