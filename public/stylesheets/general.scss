@@ -1,0 +1,7 @@
+main {
+  // maximize main to prevent side nav from getting scrunched in smaller views
+  min-height: 100vh;
+  padding-top: 65px;
+  // pulls main up the height of the header, padding pushes it back down
+  margin-top: -65px;
+}

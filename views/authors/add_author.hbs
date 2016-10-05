@@ -1,0 +1,17 @@
+<form method="POST" action="/authors">
+    <h2>Add an Author</h2>
+    <label for="first_name">First Name</label>
+    <input type="text" maxlength="255" required name="first_name" id="first_name">
+
+    <label for="last_name">Last Name</label>
+    <input type="text" maxlength="255" required name="last_name" id="last_name">
+
+    <label for="biography">Biography</label>
+    <textarea maxlength="2000" required name="biography" id="biography"></textarea>
+
+    <label for="portrait_url">Portrait URL</label>
+    <input type="url" maxlength="255" required name="portrait_url" id="portrait_url"/>
+
+    <input type="submit" value="Add Author"/>
+
+</form>

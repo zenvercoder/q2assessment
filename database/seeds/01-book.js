@@ -42,4 +42,117 @@ exports.seed = function(knex, Promise) {
                 })
             ]);
         });
+        // .then(function(authorIds){
+        //     var authorIds = authorIds.map(function(currentId){
+        //         return currentId[0]; //each authorId is stored as a single-element array
+        //     });
+        //     var bookAuthors = [{
+        //         bookTitle: "Python In A Nutshell",
+        //         authorId: authorIds[0]
+        //     },{
+        //         bookTitle: "Python In A Nutshell",
+        //         authorId: authorIds[1]
+        //     },{
+        //         bookTitle: "Python In A Nutshell",
+        //         authorId: authorIds[2]
+        //     },{
+        //         bookTitle: "Think Python",
+        //         authorId: authorIds[3]
+        //     },{
+        //         bookTitle: "Learning React Native",
+        //         authorId: authorIds[4]
+        //     },{
+        //         bookTitle: "You Do not Know JS: ES6 & Beyond",
+        //         authorId: authorIds[5]
+        //     },{bookTitle: "You Do not Know JS: Scope & Closures",
+        //         authorId: authorIds[5]
+        //     }, {
+        //         bookTitle: "You Do not Know JS: Async & Performance",
+        //         authorId: authorIds[5]
+        //     }];
+        //
+        //     return Promise.all(bookAuthors.map(function(currentBookAuthor){
+        //         return getBookIdByTitle(currentBookAuthor.bookTitle, knex, Promise)
+        //             .then(function (book) {
+        //                 return insertBookAuthor(book.id, currentBookAuthor.authorId, knex, Promise);
+        //             });
+        //     }));
 };
+//
+//
+//
+// function getBookIdByTitle(authorTitle, knex, Promise){
+//     return new Promise(function(resolve, reject){
+//         console.log("trying to get authorTitle " + authorTitle);
+//         knex("author").select("id").where("title", authorTitle).first()
+//             .then(function(author){
+//                 console.log("author=" + author.id);
+//                 resolve(author);
+//             });
+//     });
+// }
+//
+// function insertBookAuthor(authorId, authorId, knex, Promise){
+//     return new Promise(function(resolve, reject){
+//         knex("author_author").insert({
+//             author_id: parseInt(authorId),
+//             author_id: parseInt(authorId)
+//         }).then(function(){
+//             resolve();
+//         });
+//     });
+// }
+//
+// function mapBooksToAuthors(records) {
+//     var mappedAuthors = records.reduce(function(mappedAuthors, currentRecord){
+//         currentRecord = reassignAuthorIdToId(currentRecord);
+//         var authorId = currentRecord.id
+//
+//         var book = extractBookFromRecord(currentRecord);
+//         currentRecord = deleteBookFromRecord(currentRecord);
+//
+//         if(!mappedAuthors.hasOwnProperty(authorId)){
+//             currentRecord.books = [book];
+//         } else {
+//             mappedAuthors[authorId].books.push(book);
+//         }
+//
+//         return mappedAuthors;
+//
+//     }, {});
+//
+//     var authors = [];
+//     for(var authorId in mappedAuthors){
+//         authors.push(mappedAuthors[authorId]);
+//     }
+//     return authors;
+// }
+//
+// function reassignAuthorIdToId(record){
+//     record.id = record.author_id;
+//     delete record.author_id;
+//     return record;
+// }
+//
+// function extractBookFromRecord(record){
+//     return {
+//         id: record.author_id,
+//         title: record.title,
+//         description: record.description,
+//         cover_url: record.cover_image_url,
+//         genre: record.genre
+//     };
+// }
+//
+// function deleteBookFromRecord(record) {
+//     var properties = [
+//         "book_id", "title", "genre", "description", "cover_url"
+//     ];
+//
+//     for (var i = 0, length = properties.length; i < length; i++) {
+//         delete record[properties[i]];
+//     }
+//
+//     return record;
+// }
+//

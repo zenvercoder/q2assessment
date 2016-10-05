@@ -1,0 +1,45 @@
+<section>
+    <form method="POST" action="/authors/{{author.id}}?_method=PUT">
+        <h2>Edit an Author</h2>
+        <label for="first_name">First Name</label>
+        <input type="text" maxlength="255" required name="first_name" id="first_name">
+
+        <label for="last_name">Last Name</label>
+        <input type="text" maxlength="255" required name="last_name" id="last_name">
+
+        <label for="biography">Biography</label>
+        <textarea maxlength="2000" required name="biography" id="biography"></textarea>
+
+        <label for="portrait_url">Portrait URL</label>
+        <input type="url" maxlength="255" required name="portrait_url" id="portrait_url"/>
+
+        <input type="submit" value="Edit Author"/>
+
+    </form>
+
+    <div class="remove-item">
+        <h2>{{author.first_name}}'s Books</h2>
+        <ul>
+            {{#each author.books}}
+                <li>
+                    <form method="POST" action="/authors/{{author.id}}/books?_method=DELETE">
+                        <span>{{title}}</span>
+                        <button type="submit">
+                            <i class="delete fa fa-remove"></i>
+                        </button>
+                    </form>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+
+    <form class="add-item" method="POST" action="/authors/{{author.id}}/books">
+        <h2>Add a Book to {{author.first_name}}</h2>
+        <select>
+            {{#each books}}
+                <option>{{title}}</option>
+            {{/each}}
+        </select>
+        <input type="submit" value="Add Book"/>
+    </form>
+</section>

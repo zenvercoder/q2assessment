@@ -1,11 +1,11 @@
-.books {
+.books, .authors {
   margin-left: 4rem;
   padding: 1rem;
   h2 {
     @include header-text;
     margin-bottom: 1rem;
   }
-  .book {
+  .book, .author {
     display: flex;
     flex-flow: row wrap;
     &:not(:last-child) {
@@ -28,6 +28,27 @@
           color: $darkest-color;
           &:visited {
             color: $lighter-color;
+          }
+        }
+      }
+      .authors {
+        @include body-text;
+        max-width: 325px;
+        li {
+          display: inline;
+          &:not(:last-child):after {
+            content: ", "
+          }
+        }
+      }
+      .books {
+        @include body-text;
+        margin: 1rem 0;
+        padding: 0;
+        li {
+          display: inline;
+          &:not(:last-child):after{
+            content: ", "
           }
         }
       }
@@ -63,6 +84,48 @@
         }
       }
 
+    }
+  }
+  .remove-item {
+    margin-left: 4rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    li {
+      &:nth-child(odd) {
+        background-color: darken($white, 5%);
+      }
+      &:nth-child(even){
+        background-color: darken($white, 15%);
+      }
+      form {
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.5rem;
+        font-style: italic;
+        button {
+          border: none;
+          background-color: rgba(0,0,0,0);
+          .delete {
+            color: $delete-color;
+            transition: transform 0.3s;
+            font-size: 1.5rem;
+            &:hover {
+              transform: scale(1.2);
+            }
+          }
+        }
+      }
+    }
+  }
+  .add-item {
+    select {
+      background-color: $white;
+      @include body-text;
+      font-size: 1.5rem;
+      font-style: italic;
+      width: 100%;
+      margin-bottom: 1rem;
     }
   }
   .add {

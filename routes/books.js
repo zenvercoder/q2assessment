@@ -3,9 +3,14 @@ var router = express.Router();
 var databaseConnection = require("../database_connection");
 
 router.get('/:id', function (req, res, next) {
-    databaseConnection("book").select().where("id", req.params.id)
+    databaseConnection("book").select()
+        .innerJoin("book_author", "book.id", "book_id")
+        .innerJoin("author", "author_id", "author.id")
+        .where("book.id", req.params.id)
         .then(function (books) {
-            res.render("get_book", {books: books[0]});
+            var books = mapAuthorsToBooks(books);
+            console.log(books[0]);
+            res.render("books/get_book", {layout: "books_layout", books: books[0]});
         });
 });
 
@@ -14,14 +19,14 @@ router.get('/', function (req, res, next) {
         .select()
         .innerJoin("book_author", "book.id", "book_id")
         .innerJoin("author", "author_id", "author.id")
-        .then(function (books) {
+        .then(function (records) {
             var books = mapAuthorsToBooks(records);
-            res.render("list_books", {books: books});
+            res.render("books/list_books", {layout: "books_layout", books: books});
         });
 });
 
 router.get('/new', function (req, res, next) {
-    res.render("add_book");
+    res.render("books/add_book");
 });
 
 router.post('/', function (req, res, next) {
@@ -49,22 +54,35 @@ router.post('/', function (req, res, next) {
 router.get('/delete/:id', function (req, res, next) {
     databaseConnection("book").select().where("id", req.params.id)
         .then(function (books) {
-            res.render("delete_book", {book: books[0]});
+            res.render("books/delete_book", {layout: "books_layout", book: books[0]});
         });
 });
 
-router.delete("/:id", function (req, res, next) {
-    console.log("got to delete");
-    databaseConnection("book").del().where("id", req.params.id)
-        .then(function () {
-            res.redirect("/books");
-        });
+router.post("/:book_id/authors", function (req, res, next) {
+    console.log("post /:book_id/authors");
+    databaseConnection("book_author").insert({
+        book_id: parseInt(req.body.author_id),
+        author_id: parseInt(req.params.book_id)
+    }).then(function () {
+        res.redirect("/books");
+    });
+});
+
+router.delete("/:book_id/authors/:author_id", function (req, res, next) {
+    console.log("delete /:book_id/authors/:author_id");
+    databaseConnection("book_author").del()
+        .where({
+            book_id: parseInt(req.params.book_id),
+            author_id: parseInt(req.params.author_id)
+        }).then(function () {
+        res.redirect("/books");
+    });
 });
 
 router.get("/edit/:id", function (req, res, next) {
     databaseConnection("book").select().where("id", req.params.id)
         .then(function (books) {
-            res.render("edit_book", {book: books[0]});
+            res.render("books/edit_book", {layout: "books_layout", book: books[0]});
         });
 });
 
