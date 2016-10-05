@@ -4,11 +4,15 @@
         {{#each books}}
             <li class="book">
                 <figure>
-                    <img src="{{this.cover_url}}" alt="{{this.title}} book cover"/>
+                    <img src="{{cover_url}}" alt="{{book.title}} book cover"/>
                 </figure>
                 <div class="details">
                     <h3><a href="/books/{{id}}">{{this.title}}</a></h3>
-
+                    <ul class="authors">
+                        {{#each authors}}
+                            <li>{{first_name}} {{last_name}}</li>
+                        {{/each}}
+                    </ul>
                     <span class="genre">{{this.genre}}</span>
                     <p>{{this.description}}</p>
                     <div class="actions">
